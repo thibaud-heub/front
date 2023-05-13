@@ -18,29 +18,32 @@
                 <div class="row">
                     <div class="mb-3 mt-3 col">
                         <label for="first">First name:</label>
-                        <input type="text" class="form-control" id="first" placeholder="Enter first name" name="first"
-                            required>
+                        <input class="form-control" id="first" placeholder="Enter first name" pattern="[A-Z][A-Za-z-]*"
+                            onchange="currentAddedUser.first = document.getElementById('first').value;" required>
                     </div>
                     <div class="mb-3 mt-3 col">
                         <label for="last">Last name:</label>
-                        <input type="text" class="form-control" id="last" placeholder="Enter last name" name="last"
-                            required>
+                        <input class="form-control" id="last" placeholder="Enter last name" pattern="[A-Z][A-Za-z-]*"
+                            onchange="currentAddedUser.last = document.getElementById('last').value;" required>
                     </div>
                 </div>
                 <div class="mb-3 mt-3">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+                    <input class="form-control" id="email" placeholder="Enter email"
+                        pattern="[a-z0-9-_.]+@([a-z0-9]+\.)+[a-z]{2,4}"
+                        onchange="currentAddedUser.email = document.getElementById('email').value;" required>
                 </div>
                 <div class="row">
                     <div class="mb-3 mt-3 col">
                         <label for="company">Company:</label>
-                        <input type="text" class="form-control" id="company" placeholder="Enter company" name="company"
-                            required>
+                        <input class="form-control" id="company" placeholder="Enter company"
+                            pattern="[A-Z][A-Za-z0-9-' ]*"
+                            onchange="currentAddedUser.company = document.getElementById('company').value;" required>
                     </div>
                     <div class="mb-3 mt-3 col">
                         <label for="country">Country:</label>
-                        <input type="text" class="form-control" id="country" placeholder="Enter country" name="country"
-                            required>
+                        <input class="form-control" id="country" placeholder="Enter country" pattern="[A-Z][A-Za-z-' ]*"
+                            onchange="currentAddedUser.country = document.getElementById('country').value;" required>
                     </div>
                 </div>
                 <div class="mb-3 mt-3 col">
@@ -65,31 +68,16 @@
                 <tbody>
                     <% for (let i=0; i < users.length; i++) { %>
                         <tr id="<%= users[i].id %>">
+                            <td><%= users[i].id %></td>
+                            <td><%= users[i].first %></td>
+                            <td><%= users[i].last %></td>
+                            <td><%= users[i].email %></td>
+                            <td><%= users[i].company %></td>
+                            <td><%= users[i].country %></td>
+                            <td><%= users[i].created_at %></td>
                             <td>
-                                <%= users[i].id %>
-                            </td>
-                            <td>
-                                <%= users[i].first %>
-                            </td>
-                            <td>
-                                <%= users[i].last %>
-                            </td>
-                            <td>
-                                <%= users[i].email %>
-                            </td>
-                            <td>
-                                <%= users[i].company %>
-                            </td>
-                            <td>
-                                <%= users[i].country %>
-                            </td>
-                            <td>
-                                <%= users[i].created_at %>
-                            </td>
-                            <td>
-                                <button class="btn btn-warning" onclick="editForm('<%= users[i].id %>')">Edit</button>
-                                <button class="btn btn-danger"
-                                    onclick="deleteUser('<%= users[i].id %>')">Delete</button>
+                                <button class="btn btn-warning" onclick="editForm(<%= users[i].id %>)">Edit</button>
+                                <button class="btn btn-danger" onclick="deleteUser(<%= users[i].id %>)">Delete</button>
                             </td>
                         </tr>
                         <% } %>
@@ -97,6 +85,7 @@
             </table>
         </div>
     </div>
+    <script src="javascripts/index.js"></script>
 
 </body>
 
