@@ -14,36 +14,34 @@
     <div class="container mt-3">
         <h1>Users Database</h1>
         <div class="mt-4 p-5 bg-secondary text-white rounded">
-            <form class="was-validated">
+            <form class="was-validated" onsubmit="addUser(); return false;">
                 <div class="row">
                     <div class="mb-3 mt-3 col">
                         <label for="first">First name:</label>
-                        <input class="form-control" id="first" placeholder="Enter first name" pattern="[A-Z][A-Za-z-]*"
-                            onchange="currentAddedUser.first = document.getElementById('first').value;" required>
+                        <input class="form-control" id="first" placeholder="Enter first name"
+                            pattern="^[A-Z][A-Za-z-]*$" required>
                     </div>
                     <div class="mb-3 mt-3 col">
                         <label for="last">Last name:</label>
-                        <input class="form-control" id="last" placeholder="Enter last name" pattern="[A-Z][A-Za-z-]*"
-                            onchange="currentAddedUser.last = document.getElementById('last').value;" required>
+                        <input class="form-control" id="last" placeholder="Enter last name" pattern="^[A-Z][A-Za-z-]*$"
+                            required>
                     </div>
                 </div>
                 <div class="mb-3 mt-3">
                     <label for="email">Email:</label>
                     <input class="form-control" id="email" placeholder="Enter email"
-                        pattern="[a-z0-9-_.]+@([a-z0-9]+\.)+[a-z]{2,4}"
-                        onchange="currentAddedUser.email = document.getElementById('email').value;" required>
+                        pattern="^[a-z0-9-_.]+@([a-z0-9]+\.)+[a-z]{2,4}$" required>
                 </div>
                 <div class="row">
                     <div class="mb-3 mt-3 col">
                         <label for="company">Company:</label>
                         <input class="form-control" id="company" placeholder="Enter company"
-                            pattern="[A-Z][A-Za-z0-9-' ]*"
-                            onchange="currentAddedUser.company = document.getElementById('company').value;" required>
+                            pattern="^[A-Z][A-Za-z0-9-' ]*$" required>
                     </div>
                     <div class="mb-3 mt-3 col">
                         <label for="country">Country:</label>
-                        <input class="form-control" id="country" placeholder="Enter country" pattern="[A-Z][A-Za-z-' ]*"
-                            onchange="currentAddedUser.country = document.getElementById('country').value;" required>
+                        <input class="form-control" id="country" placeholder="Enter country"
+                            pattern="^[A-Z][A-Za-z-' ]*$" required>
                     </div>
                 </div>
                 <div class="mb-3 mt-3 col">

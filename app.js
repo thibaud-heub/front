@@ -17,8 +17,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/", function (req, res, next) {
-    const users = JSON.parse(fs.readFileSync("users.json"));
+app.get("/", async function (req, res, next) {
+    const users = await fetch("http://localhost:3001").then(res => res.json());
     res.render("index", { users });
 });
 
